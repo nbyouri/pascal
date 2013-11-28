@@ -1,6 +1,7 @@
-unit petitProjet;
+unit youri;
 
 interface
+
 uses
     crt;
 var
@@ -14,7 +15,7 @@ procedure separateur(ch : char);
 function checkerreur(vartemp : string) : integer;
 
 
-implementation    
+implementation
 
 function checkerreur(vartemp : string) : integer;
 var

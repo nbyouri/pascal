@@ -1,6 +1,6 @@
 program main;
 
-uses    crt, petitProjet;
+uses    crt, youri, tom;
 
 begin
     write('entrer premier nombre : ');  readln(vartemp);
