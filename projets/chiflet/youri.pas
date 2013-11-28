@@ -4,13 +4,18 @@ interface
 
 uses
     crt;
+
+const 
+    maxnombres = 6;
 var
     vartemp : string;
-    premnbre,deuxnbre,solu : integer;
+    i,total,premnbre,deuxnbre,solu : integer;
     op : char;
+    nombres : array[1..maxnombres] of integer;
 
 function calcul(premnbre,deuxnbre : integer; op : char) : integer;
 function checkerreur(vartemp : string) : integer;
+procedure generateur;
 procedure verification;
 procedure separateur;
 
@@ -23,7 +28,7 @@ begin
     '-' : calcul := premnbre - deuxnbre;
     '*' : calcul := premnbre * deuxnbre;
     '/' : calcul := premnbre div deuxnbre;
-end;
+    end;
 end;
 
 function checkerreur(vartemp : string) : integer;
@@ -37,6 +42,15 @@ begin
         val(vartemp,i,error);
     end;
     checkerreur := i;
+end;
+
+procedure generateur;
+begin
+    randomize;
+    total := random(899) + 100;
+    for i := 1 to maxnombres do begin
+        nombres[i] := random(9) + 1;
+    end;
 end;
 
 procedure separateur;
