@@ -1,0 +1,13 @@
+Un distributeur de boissons propose 5 sortes de consommation :
+	•	Eau 1 euro
+	•	Sprite 1.2 euro
+	•	Coca 1.2 euro
+	•	Fanta 1.2 euro
+	•	Jus oranges 1.5 euro
+Ecrire un programme qui permet de servir plusieurs clients ( 1 client à la fois).
+Chaque client peut choisir plusieurs boissons ( 1 boisson à la fois, comme devant un vrai distributeur). Lorsque le client a terminé, le programme affiche la somme totale qu’il doit payer (on ne vous demande pas de gérer les paiements ni de rendre la monnaie !).
+A la fin de la journée, le programme doit également afficher le montant total que le distributeur a engrangé.
+Présenter au client un petit menu avec les choix possibles (comme la face avant d’un distributeur).
+Attention : il se peut que le stock de certaine(s) boisson(s) tombe à 0 en cours de journée.
+Bon travail.
+Remarque : n’oubliez pas de mettre vos noms au début du fichier programme !!!
