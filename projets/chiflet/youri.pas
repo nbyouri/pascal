@@ -6,35 +6,44 @@ uses
     crt;
 var
     vartemp : string;
-    premnbre,deuxnbre : integer;
+    premnbre,deuxnbre,solu : integer;
     op : char;
-    ch : char;
 
-procedure verification;
-procedure separateur(ch : char);
+function calcul(premnbre,deuxnbre : integer; op : char) : integer;
 function checkerreur(vartemp : string) : integer;
-
+procedure verification;
+procedure separateur;
 
 implementation
 
+function calcul(premnbre,deuxnbre : integer; op : char) : integer;
+begin
+    case op of
+    '+' : calcul := premnbre + deuxnbre;
+    '-' : calcul := premnbre - deuxnbre;
+    '*' : calcul := premnbre * deuxnbre;
+    '/' : calcul := premnbre div deuxnbre;
+end;
+end;
+
 function checkerreur(vartemp : string) : integer;
 var
-    int,error : integer;
+    i,error : integer;
 begin
-    val(vartemp,int,error);
+    val(vartemp,i,error);
     while (error <> 0) do begin
         write('entrer valeur entiere : ');
         readln(vartemp);
-        val(vartemp,int,error);
+        val(vartemp,i,error);
     end;
-    checkerreur := int;
+    checkerreur := i;
 end;
 
-procedure separateur(ch : char);
+procedure separateur;
 var 
 s : string;
 begin
-    s := stringofchar(ch,50);
+    s := stringofchar('-',50);
     writeln('+',s,'+');
 end;
 
@@ -46,7 +55,7 @@ begin
     end;
     if (op = '/') then begin
         if (premnbre mod deuxnbre <> 0) then
-            writeln('Division non entiere! ');
+            writeln('Resultat de la division non entiere! ');
     end;
 end;
 

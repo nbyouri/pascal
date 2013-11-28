@@ -9,7 +9,9 @@ begin
     write('entrer deuxiemme nombre : '); readln(vartemp);
     deuxnbre := checkerreur(vartemp);
     verification;
-    ch := '-';
-    separateur(ch);
+    separateur;
+    solu := calcul(premnbre,deuxnbre,op);
+    writeln('Solution = ',solu);
+    separateur;
     readkey;
 end.
