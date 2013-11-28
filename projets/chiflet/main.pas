@@ -1,10 +1,7 @@
 program main;
+
 uses    crt, petitProjet;
-(*var
-    vartemp : string;
-    premnbre,deuxnbre : integer;
-    op : char;
-    ch : char;*)
+
 begin
     write('entrer premier nombre : ');  readln(vartemp);
     premnbre := checkerreur(vartemp);
