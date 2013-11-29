@@ -32,13 +32,13 @@ implementation
 
 function calcul(premnbre,deuxnbre : integer; op : char) : integer;
 begin
-    case op of
-    '+' : calcul := premnbre + deuxnbre;
-    '-' : calcul := premnbre - deuxnbre;
-    '*' : calcul := premnbre * deuxnbre;
-    '/' : calcul := premnbre div deuxnbre;
-else erreur := true;
-    end;
+        case op of
+        '+' : calcul := premnbre + deuxnbre;
+        '-' : calcul := premnbre - deuxnbre;
+        '*' : calcul := premnbre * deuxnbre;
+        '/' : calcul := premnbre div deuxnbre;
+    else erreur := true;
+end;
 end;
 
 function strtoint(vartemp : string) : integer;
@@ -58,7 +58,7 @@ procedure generateur;
 begin
     randomize;
     total := random(899) + 100;
-    for i := 1 to maxnombres do begin
+    for i := 0 to maxnombres do begin
         nombres[i] := random(9) + 1;
     end;
 end;
@@ -87,13 +87,14 @@ end;
 
 procedure verification;
 begin
-    if not (op in ['+','-','/','*']) then begin
+    while not (op in ['+','-','/','*']) do begin
         write('Operateur incorrect! entrer +-*/! : ');
         readln(op);
     end;
-    if (op = '/') then begin
-        if (premnbre mod deuxnbre <> 0) then
-            writeln('Resultat de la division non entiere! ');
+    if (op = '/') then 
+    if (premnbre mod deuxnbre <> 0) then begin
+        writeln('Resultat de la division non entiere! ');
+        erreur := true;
     end;
 end;
 
