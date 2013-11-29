@@ -5,11 +5,12 @@ uses    crt, youri, tom;
 var i : integer;
 
 begin
+    initjoueurs;
     write('entrer premier nombre : ');  readln(vartemp);
-    premnbre := checkerreur(vartemp);
+    premnbre := strtoint(vartemp);
     write('entrer operateur : '); readln(op);
     write('entrer deuxiemme nombre : '); readln(vartemp);
-    deuxnbre := checkerreur(vartemp);
+    deuxnbre := strtoint(vartemp);
     verification;
     separateur;
     solu := calcul(premnbre,deuxnbre,op);

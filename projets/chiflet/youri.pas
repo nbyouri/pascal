@@ -5,17 +5,26 @@ interface
 uses
     crt;
 
+type
+    personne = record
+        score : integer;
+        nom : string;
+    end;
     const 
     maxnombres = 6;
+    maxjoueurs = 10;
 var
     vartemp : string;
-    i,total,premnbre,deuxnbre,solu : integer;
+    i,total,premnbre,deuxnbre,solu,numjou : integer;
     op : char;
     nombres : array[1..maxnombres] of integer;
+    joueurs : array[1..maxjoueurs] of personne;
+    erreur : boolean;
 
 function calcul(premnbre,deuxnbre : integer; op : char) : integer;
-function checkerreur(vartemp : string) : integer;
+function strtoint(vartemp : string) : integer;
 procedure generateur;
+procedure initjoueurs;
 procedure verification;
 procedure separateur;
 
@@ -28,10 +37,11 @@ begin
     '-' : calcul := premnbre - deuxnbre;
     '*' : calcul := premnbre * deuxnbre;
     '/' : calcul := premnbre div deuxnbre;
-end;
+else erreur := true;
+    end;
 end;
 
-function checkerreur(vartemp : string) : integer;
+function strtoint(vartemp : string) : integer;
 var
     i,error : integer;
 begin
@@ -41,7 +51,7 @@ begin
         readln(vartemp);
         val(vartemp,i,error);
     end;
-    checkerreur := i;
+    strtoint := i;
 end;
 
 procedure generateur;
@@ -50,6 +60,20 @@ begin
     total := random(899) + 100;
     for i := 1 to maxnombres do begin
         nombres[i] := random(9) + 1;
+    end;
+end;
+
+procedure initjoueurs;
+begin
+    repeat
+        write('Combien de joueurs ? (',maxjoueurs,' max) : ');
+        readln(vartemp);
+        numjou := strtoint(vartemp);
+    until (numjou > 0) and (numjou < maxjoueurs);
+    for i := 1 to numjou do begin
+        write('Entrer le nom du joueur nr.',i,' : ');
+        readln(joueurs[i].nom);
+        joueurs[i].score := 0;
     end;
 end;
 
