@@ -9,7 +9,8 @@ begin
     initjoueurs;
     write('entrer premier nombre : ');  readln(vartemp);
     premnbre := strtoint(vartemp);
-    write('entrer operateur : '); readln(op);
+    write('entrer operateur : '); readln(vartemp);
+    op := vartemp[1];
     write('entrer deuxiemme nombre : '); readln(vartemp);
     deuxnbre := strtoint(vartemp);
     verification;
@@ -22,8 +23,9 @@ begin
     generateur;
     writeln(total);
     for i := 1 to maxnombres do begin
-        writeln(i,' : ',nombres[i]);
+        write(' | ',nombres[i]);
     end;
-    generateur;
+    writeln(' |');
     readkey;
+    writeln(joueurs[1].nom);
 end.

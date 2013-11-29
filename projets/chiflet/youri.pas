@@ -8,13 +8,13 @@ uses
 type
     personne = record
         score : integer;
-        nom : string;
+        nom : string[10];
     end;
     const 
     maxnombres = 6;
     maxjoueurs = 10;
 var
-    vartemp : string;
+    vartemp : string[20];
     i,total,premnbre,deuxnbre,solu,numjou : integer;
     op : char;
     nombres : array[1..maxnombres] of integer;
@@ -32,12 +32,12 @@ implementation
 
 function calcul(premnbre,deuxnbre : integer; op : char) : integer;
 begin
-        case op of
-        '+' : calcul := premnbre + deuxnbre;
-        '-' : calcul := premnbre - deuxnbre;
-        '*' : calcul := premnbre * deuxnbre;
-        '/' : calcul := premnbre div deuxnbre;
-    else erreur := true;
+    case op of
+    '+' : calcul := premnbre + deuxnbre;
+    '-' : calcul := premnbre - deuxnbre;
+    '*' : calcul := premnbre * deuxnbre;
+    '/' : calcul := premnbre div deuxnbre;
+else erreur := true;
 end;
 end;
 
@@ -89,7 +89,8 @@ procedure verification;
 begin
     while not (op in ['+','-','/','*']) do begin
         write('Operateur incorrect! entrer +-*/! : ');
-        readln(op);
+        readln(vartemp);
+        op := vartemp[1];
     end;
     if (op = '/') then 
     if (premnbre mod deuxnbre <> 0) then begin
