@@ -17,7 +17,7 @@ begin
     separateur;
     generateur;
     writeln(total);
-    for i := 1 to 6 do begin
+    for i := 1 to maxnombres do begin
         writeln(i,' : ',nombres[i]);
     end;
     generateur;
