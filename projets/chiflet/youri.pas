@@ -5,7 +5,7 @@ interface
 uses
     crt;
 
-const 
+    const 
     maxnombres = 6;
 var
     vartemp : string;
@@ -28,7 +28,7 @@ begin
     '-' : calcul := premnbre - deuxnbre;
     '*' : calcul := premnbre * deuxnbre;
     '/' : calcul := premnbre div deuxnbre;
-    end;
+end;
 end;
 
 function checkerreur(vartemp : string) : integer;
